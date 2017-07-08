@@ -7277,6 +7277,7 @@ h6 {
 .navigation .nav > li {
 	float: left;
 	position: relative;
+	border-left: 10px solid transparent;
 }
 .navigation .nav > li > a {
 	color: #fff;
@@ -7288,7 +7289,7 @@ h6 {
 .navigation .nav > li > ul {
 	position: absolute;
 	top: 87%;
-	left: 0;
+	left: -10px;
 	z-index: 1000;
 	display: none;
 	float: left;
@@ -7302,6 +7303,7 @@ h6 {
 	content: " ";
 	display: block;
 	height: 4px;
+	border-left: 10px solid #d3031c;
 }
 .navigation .nav > li > ul > div {
 	border-left: 10px solid #d3031c;
@@ -7328,6 +7330,9 @@ h6 {
 	line-height: 18px;
 	color: #fff;
 	white-space: nowrap;
+}
+.navigation .nav > li:hover {
+	border-left-color: #d3031c;
 }
 .navigation .nav > li:hover > ul {
 	display: block;
