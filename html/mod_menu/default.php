@@ -84,13 +84,13 @@ foreach ($list as $i => &$item)
 	// The next item is deeper.
 	if ($item->deeper)
 	{
-		echo '<ul class="' . (($item->IsActive && (!$item->IsCurrent))?"active":"inactive") . '">';
+		echo '<ul class="' . (($item->IsActive && (!$item->IsCurrent))?"active":"inactive") . '"><div>';
 	}
 	elseif ($item->shallower)
 	{
 		// The next item is shallower.
 		echo '</li>';
-		echo str_repeat('</ul></li>', $item->level_diff);
+		echo str_repeat('</div></ul></li>', $item->level_diff);
 	}
 	else
 	{

@@ -362,13 +362,15 @@ margin-bottom: 7px;
         display: none; // none by default, but block on "open" of the menu
         float: left;
         min-width: 160px;
-        padding: 15px 0 5px;
         margin: 2px 0 0; // override default ul
         list-style: none;
         background-color: @elisa-logo-rose;
         //border-top: 5px solid transparent;
   		border-bottom: 5px solid @elisa-logo-orange;
-        border-left: 5px solid @elisa-logo-rouge;
+  		> div {
+            border-left: 10px solid @elisa-logo-rouge;
+            padding: 15px 0 5px;
+		}
 /*        border: 1px solid #ccc; // Fallback for IE7-8
         border: 1px solid @dropdownBorder;
         *border-right-width: 2px;
