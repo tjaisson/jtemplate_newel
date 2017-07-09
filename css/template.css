@@ -7290,8 +7290,15 @@ h6 {
 .navigation .nav > li > ul {
 	visibility: hidden;
 	opacity: 0;
-	transform: translateY(-2em);
+	-webkit-transform: translate(0,-2em);
+	-moz-transform: translate(0,-2em);
+	-ms-transform: translate(0,-2em);
+	-o-transform: translate(0,-2em);
+	transform: translate(0,-2em);
 	z-index: -100;
+	-webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+	-moz-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+	-o-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
 	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
 	position: absolute;
 	top: 87%;
@@ -7342,7 +7349,14 @@ h6 {
 	visibility: visible;
 	opacity: 1;
 	z-index: 100;
-	transform: translateY(0%);
+	-webkit-transform: translate(0,0);
+	-moz-transform: translate(0,0);
+	-ms-transform: translate(0,0);
+	-o-transform: translate(0,0);
+	transform: translate(0,0);
+	-webkit-transition-delay: 0s, 0s, 0.3s;
+	-moz-transition-delay: 0s, 0s, 0.3s;
+	-o-transition-delay: 0s, 0s, 0.3s;
 	transition-delay: 0s, 0s, 0.3s;
 }
 .visible-collapsed-inactive {
