@@ -338,6 +338,7 @@ margin-bottom: 7px;
     color: #fff;
 	> li
 	{
+      z-index: 102;
 	  float: left;
 	  position: relative;
       > a
@@ -356,31 +357,25 @@ margin-bottom: 7px;
           height: 4px;
           border-left: 10px solid @elisa-logo-rouge;
         }
+        visibility: hidden; /* hides sub-menu */
+        opacity: 0;
+	    transform: translateY(-2em);
+        z-index: -100;
+        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+        
         position: absolute;
         top: 87%;
         left: -10px;
-        z-index: @zindexDropdown;
-        display: none; // none by default, but block on "open" of the menu
         float: left;
         min-width: 160px;
         margin: 2px 0 0; // override default ul
         list-style: none;
         background-color: @elisa-logo-rose;
-        //border-top: 5px solid transparent;
   		border-bottom: 7px solid @elisa-logo-orange;
   		> div {
             border-left: 10px solid @elisa-logo-rouge;
             padding: 15px 0 5px;
 		}
-/*        border: 1px solid #ccc; // Fallback for IE7-8
-        border: 1px solid @dropdownBorder;
-        *border-right-width: 2px;
-        *border-bottom-width: 2px;
-        .border-radius(6px);
-        .box-shadow(0 5px 10px rgba(0,0,0,.2));
-        -webkit-background-clip: padding-box;
-        -moz-background-clip: padding;
-        background-clip: padding-box;*/
         // Aligns the dropdown menu to right
         &.pull-right {
             right: 0;
@@ -406,7 +401,13 @@ margin-bottom: 7px;
       border-left: 10px solid transparent;
       &:hover {
           border-left-color: @elisa-logo-rouge;
-          > ul { display: block; }
+          > ul {
+			  visibility: visible; /* shows sub-menu */
+			  opacity: 1;
+			  z-index: 100;
+			  transform: translateY(0%);
+			  transition-delay: 0s, 0s, 0.3s; /* this removes the*/ 
+           }
       }
     }
   }
@@ -432,13 +433,28 @@ margin-bottom: 7px;
     {
       background-color: @wellBackground;
       color: @dropdownLinkColor;
-      > li
-      {
+      > li {
+          &:hover {
+            border-left-color: transparent;
+          }
         float: none;
         position: static;
         > ul
         {
-          float: none;
+          &:before {
+             height: 2px;
+             border-left-color: transparent;
+          }
+          > div {
+             padding-top: 0;
+             border-left-color: transparent;
+          }
+	      float: none;
+          visibility: visible; /* shows sub-menu */
+		  opacity: 1;
+		  z-index: 100;
+		  transform: none;
+          
           position: static;
           display: block;
           background-color: inherit;

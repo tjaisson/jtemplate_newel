@@ -7275,6 +7275,7 @@ h6 {
 	color: #fff;
 }
 .navigation .nav > li {
+	z-index: 102;
 	float: left;
 	position: relative;
 	border-left: 10px solid transparent;
@@ -7287,11 +7288,14 @@ h6 {
 	background-color: inherit !important;
 }
 .navigation .nav > li > ul {
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(-2em);
+	z-index: -100;
+	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
 	position: absolute;
 	top: 87%;
 	left: -10px;
-	z-index: 1000;
-	display: none;
 	float: left;
 	min-width: 160px;
 	margin: 2px 0 0;
@@ -7335,7 +7339,11 @@ h6 {
 	border-left-color: #d3031c;
 }
 .navigation .nav > li:hover > ul {
-	display: block;
+	visibility: visible;
+	opacity: 1;
+	z-index: 100;
+	transform: translateY(0%);
+	transition-delay: 0s, 0s, 0.3s;
 }
 .visible-collapsed-inactive {
 	display: none;
@@ -7359,14 +7367,29 @@ h6 {
 		float: none;
 		position: static;
 	}
+	.navigation .nav-collapse .nav > li:hover {
+		border-left-color: transparent;
+	}
 	.navigation .nav-collapse .nav > li > ul {
 		float: none;
+		visibility: visible;
+		opacity: 1;
+		z-index: 100;
+		transform: none;
 		position: static;
 		display: block;
 		background-color: inherit;
 		border: inherit;
 		padding: inherit;
 		margin: inherit;
+	}
+	.navigation .nav-collapse .nav > li > ul:before {
+		height: 2px;
+		border-left-color: transparent;
+	}
+	.navigation .nav-collapse .nav > li > ul > div {
+		padding-top: 0;
+		border-left-color: transparent;
 	}
 }
 .visible-collapsed {
