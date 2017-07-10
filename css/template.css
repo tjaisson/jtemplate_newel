@@ -7274,6 +7274,25 @@ h6 {
 	font-size: 15px;
 	color: #fff;
 }
+.navigation .nav a {
+	display: block;
+	clear: both;
+	font-weight: normal;
+	line-height: 18px;
+	color: #fff;
+	white-space: nowrap;
+	color: #fff !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	background-color: inherit !important;
+	text-decoration: none;
+}
+.navigation .nav a:hover {
+	text-decoration: underline !important;
+	color: #fff !important;
+}
 .navigation .nav > li {
 	z-index: 102;
 	float: left;
@@ -7281,11 +7300,7 @@ h6 {
 	border-left: 10px solid transparent;
 }
 .navigation .nav > li > a {
-	color: #fff;
-	text-decoration: none;
-	text-shadow: none;
 	padding: 3px 15px;
-	background-color: inherit !important;
 }
 .navigation .nav > li > ul {
 	visibility: hidden;
@@ -7334,13 +7349,7 @@ h6 {
 	border-bottom: 1px solid #fff;
 }
 .navigation .nav > li > ul a {
-	display: block;
 	padding: 3px 20px;
-	clear: both;
-	font-weight: normal;
-	line-height: 18px;
-	color: #fff;
-	white-space: nowrap;
 }
 .navigation .nav > li:hover {
 	border-left-color: #d3031c;
