@@ -134,12 +134,7 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
 
 	<!-- Body -->
 	<div class="body" id="top">
-	<!--[if !IE]><!-->
 		<div class="container<?php echo ($this->params->get('fluidContainer') ? '-fluid' : '');?>">
-	<!--<![endif]-->
-	<!--[if IE]>
-		<div class="container">
-	<![endif]-->
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
