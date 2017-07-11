@@ -20,7 +20,7 @@ $view     = $app->input->getCmd('view', '');
 $layout   = $app->input->getCmd('layout', '');
 $task     = $app->input->getCmd('task', '');
 $itemid   = $app->input->getCmd('Itemid', '');
-$sitename = $app->getCfg('sitename');
+$sitename = $app->get('sitename');
 
 if($task == "edit" || $layout == "form" )
 {
@@ -33,10 +33,14 @@ else
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
-$doc->addScript($this->baseurl . '/templates/' .$this->template. '/js/template.js');
+JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
+
+// Add html5 shiv
+JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
 
 // Add Stylesheets
-$doc->addStyleSheet($this->baseurl . '/templates/' .$this->template. '/css/template.css');
+JHtml::_('stylesheet', 'template.css', array('version' => 'auto', 'relative' => true));
+
 //if ($this->params->get('googleFont'))
 // $doc->addStyleSheet('http://fonts.googleapis.com/css?family='.$this->params->get('googleFontName'));
 
@@ -87,22 +91,6 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<jdoc:include type="head" />
   <style type="text/css">
-<?php
-/* if ($this->params->get('googleFont')) {
-// Use of Google Font
-?>
-   h1,h2,h3,h4,h5,h6,.site-title
-   {
-    font-family: '<?php echo str_replace('+', ' ', $this->params->get('googleFontName'));?>', sans-serif;
-   }
-<?php }
-*/
-//
-//   body.site
-//   {
-/*    background: <?php echo $this->params->get('templateBackgroundColor');?> url("/images/accueil/fond-toile.png") repeat fixed;
-   }*/
-?>
    header.header
    {
    }
@@ -132,9 +120,6 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
     box-shadow: 0 1px 3px rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .1), inset 0 30px 10px rgba(0, 0, 0, .2);
    }
   </style>
-  <!--[if lt IE 9]>
-   <script src="<?php echo $this->baseurl ?>/media/jui/js/html5.js"></script>
-  <![endif]-->
 </head>
 
 <body class="site <?php echo $option
@@ -148,7 +133,7 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
 <jdoc:include type="modules" name="hidden" style="hidden" />
 
 	<!-- Body -->
-	<div class="body">
+	<div class="body" id="top">
 	<!--[if !IE]><!-->
 		<div class="container<?php echo ($this->params->get('fluidContainer') ? '-fluid' : '');?>">
 	<!--<![endif]-->
@@ -168,7 +153,7 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
 							<?php if ($this->countModules('position-1')) : ?>
 							<nav class="navbar navigation" role="navigation">
 									<div class="container-fluid">
-										<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+										<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
@@ -176,9 +161,9 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
                                         <a class="visible-phone pull-left" href="<?php echo $this->baseurl; ?>">
                                         <?php echo $logoSmall; ?>
                                         </a>
-                                        <div class="nav-collapse">
-											<jdoc:include type="modules" name="position-1" style="none" />
-                                        </div>
+                                    <div class="nav-collapse">
+                                        <jdoc:include type="modules" name="position-1" style="none" />
+                                    </div>
                                     </div>
 							</nav>
 							<?php endif; ?>
