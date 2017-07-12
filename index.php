@@ -167,12 +167,7 @@ $logoSmall .= '<span title="'. $sitename .'">'. htmlspecialchars($sitename) .'</
 				</div>
 			</header>
 			<jdoc:include type="modules" name="banner" style="xhtml" />
-	<!--[if !IE]><!-->
 			<div class="row-fluid">
-	<!--<![endif]-->
-	<!--[if IE]>
-			<div class="row">
-	<![endif]-->
 				<?php if ($this->countModules('position-8')) : ?>
 				<!-- Begin Sidebar -->
 				<div id="sidebar" class="<?php echo $lspan;?>">
